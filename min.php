@@ -7,14 +7,16 @@ error_reporting(E_ALL);
   {
     $arrayMinNumbers = [];
 
-    $minFirst = min(array_values($numbers));
-    $arrayMinNumbers[] = $minFirst;
-    $numberWithoutFirstMin = array_diff($numbers, $arrayMinNumbers);
-    $minSecond = min(array_values($numberWithoutFirstMin));
-    $arrayMinNumbers[] = $minSecond;
-
-    return $arrayMinNumbers;
+    foreach ($numbers as $key => $value) {
+      $minFirst = min(array_values($numbers));
+      $arrayMinNumbers[] = $minFirst;
+      $minFirstKey = array_search($minFirst, $numbers);
+      unset($numbers[$minFirstKey]);
+      $minSecond = min(array_values($numbers));
+      $arrayMinNumbers[] = $minSecond;
+      return $arrayMinNumbers;
+    }
   }
 
   $num = [3, -4, 2, 3, -1, 2];
-  print_r(minimum($num));
+  var_dump(minimum($num));
