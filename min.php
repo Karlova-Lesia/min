@@ -14,6 +14,7 @@ error_reporting(E_ALL);
       unset($numbers[$minFirstKey]);
       $minSecond = min(array_values($numbers));
       $arrayMinNumbers[] = $minSecond;
+
       return $arrayMinNumbers;
     }
   }
